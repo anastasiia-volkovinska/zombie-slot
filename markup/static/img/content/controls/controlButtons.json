@@ -1,0 +1,58 @@
+{
+
+"images": [
+    "static/img/content/controls/controlButtons.png"
+],
+
+"framerate": 12,
+
+"frames": [
+    [1, 1, 100, 150, 0, 0, 0],
+    [103, 1, 100, 150, 0, 0, 0],
+    [1, 153, 100, 150, 0, 0, 0],
+    [103, 153, 100, 150, 0, 0, 0],
+    [205, 153, 50, 50, 0, 0, 0],
+    [1, 305, 50, 50, 0, 0, 0],
+    [53, 305, 100, 150, 0, 0, 0],
+    [155, 305, 100, 150, 0, 0, 0],
+    [1, 457, 100, 150, 0, 0, 0],
+    [103, 457, 40, 50, 0, 0, 0],
+    [145, 457, 40, 50, 0, 0, 0],
+    [187, 457, 40, 50, 0, 0, 0],
+    [1, 609, 40, 50, 0, 0, 0],
+    [43, 609, 190, 150, 0, 0, 0],
+    [1, 761, 190, 150, 0, 0, 0],
+    [1, 913, 190, 150, 0, 0, 0],
+    [1, 1065, 190, 150, 0, 0, 0],
+    [1, 1217, 190, 150, 0, 0, 0],
+    [1, 1369, 190, 150, 0, 0, 0]
+],
+
+"animations": {
+    "auto": { "frames": [0] },
+    "autoHover": { "frames": [1] },
+    "autoOff": { "frames": [2] },
+    "autoOn": { "frames": [3] },
+    "info": { "frames": [4] },
+    "infoHover": { "frames": [5] },
+    "maxBet": { "frames": [6] },
+    "maxBetHover": { "frames": [7] },
+    "maxBetOn": { "frames": [8] },
+    "minus": { "frames": [9] },
+    "minusHover": { "frames": [10] },
+    "plus": { "frames": [11] },
+    "plusHover": { "frames": [12] },
+    "spin": { "frames": [13] },
+    "spinHover": { "frames": [14] },
+    "spinOn": { "frames": [15] },
+    "stop": { "frames": [16] },
+    "stopHover": { "frames": [17] },
+    "stopOn": { "frames": [18] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:5118c720ff132bbc7f0b0fd4366eabd2:65671ef2ce9bf756d1ac4b91a7e7e450:bfec0fa638796872e4471cb232e1316d$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

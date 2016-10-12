@@ -26,7 +26,8 @@ export let bg = (function () {
 
         const bgContainer = new c.Container().set({name: 'bgContainer'});
         const mainContainer = new c.Container().set({
-            name: 'mainContainer'
+            name: 'mainContainer',
+            x: -30
         });
         if (storage.read('device') === 'desktop') {
             mainContainer.scaleX = mainContainer.scaleY = 0.86;
@@ -44,8 +45,8 @@ export let bg = (function () {
 
         const gameBG = new c.Bitmap(loader.getResult('gameBG')).set({
             name: 'gameBG',
-            x: 60, // Magic Numbers
-            y: 5 // Magic Numbers
+            x: 98, // Magic Numbers
+            y: 78 // Magic Numbers
         });
         const gameMachine = new c.Bitmap(loader.getResult('gameMachine')).set({
             name: 'gameMachine',

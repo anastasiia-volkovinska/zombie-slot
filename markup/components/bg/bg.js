@@ -33,7 +33,7 @@ export let bg = (function () {
             mainContainer.x = mainContainer.x + 130;
         }
         const mainBG = new c.Bitmap(loader.getResult('mainBG')).set({name: 'mainBG'});
-        const zaglushka = new c.Bitmap(loader.getResult('zaglushka')).set({name: 'zaglushka', y: 600, scaleX: 0.7, scaleY: 0.7});
+        // const zaglushka = new c.Bitmap(loader.getResult('zaglushka')).set({name: 'zaglushka', y: 600, scaleX: 0.7, scaleY: 0.7});
         const mainBGSky = new c.Bitmap(loader.getResult('mainBGSky')).set({name: 'mainBGSky'});
         const greyBGGradient = new c.Shape().set({
             name: 'greyBGGradient',
@@ -53,7 +53,7 @@ export let bg = (function () {
             y: 5 // Magic Numbers
         });
 
-        bgContainer.addChild(mainBGSky, greyBGGradient, mainBG, zaglushka);
+        bgContainer.addChild(mainBGSky, greyBGGradient, mainBG);
         mainContainer.addChild(gameBG, gameMachine);
         stage.addChildAt(bgContainer, mainContainer, 0);
 

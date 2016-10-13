@@ -16,8 +16,8 @@ export const mainManifest = [
     {id: 'rules', src: 'static/img/content/bg/firstRules.png'},
     {id: 'home', src: 'static/img/content/new/home.png'},
     {id: 'fonLine', src: 'static/img/content/bg/fonLine.png'},
-    {id: 'zaglushka', src: 'static/img/content/bg/zaglushka.png'},
-    {id: 'pole', src: 'static/img/content/bg/pole.json', type: 'spritesheet'},
+    // {id: 'zaglushka', src: 'static/img/content/bg/zaglushka.png'},
+    // {id: 'pole', src: 'static/img/content/bg/pole.json', type: 'spritesheet'},
 
     // preloader module
     {id: 'preloaderBG', src: 'static/img/content/preloader/preloaderBG.png'},
@@ -34,7 +34,7 @@ export const mainManifest = [
     {id: 'controlButtons', src: 'static/img/content/controls/controlButtons.json', type: 'spritesheet'},
 
     // roll module
-    {id: 'new_elements', src: 'static/img/content/elements/elements.json', type: 'spritesheet'},
+    {id: 'elements', src: 'static/img/content/elements/elements.json', type: 'spritesheet'},
     {id: 'gameShadow', src: 'static/img/content/bg/gameShadow.png'},
 
     // win module
@@ -62,17 +62,7 @@ export const mainManifest = [
     {id: 'startPerehodSound', src: 'static/img/content/sounds/startPerehod.mp3'},
     {id: 'stekloSound', src: 'static/img/content/sounds/steklo.mp3'},
     {id: 'vistrelAllSound', src: 'static/img/content/sounds/vistrelAll.mp3'},
-    // {id: 'doorsAmbientSound', src: 'static/img/content/sounds/doorsAmbient.mp3'},
-    // {id: 'door1Sound', src: 'static/img/content/sounds/door1.mp3'},
-    // {id: 'door2Sound', src: 'static/img/content/sounds/door2.mp3'},
-    // {id: 'door3Sound', src: 'static/img/content/sounds/door3.mp3'},
-    // {id: 'door4Sound', src: 'static/img/content/sounds/door4.mp3'},
-    // {id: 'door5Sound', src: 'static/img/content/sounds/door5.mp3'},
-    // {id: 'muhaSound', src: 'static/img/content/sounds/muha.mp3'},
-    // {id: 'fsClockSound', src: 'static/img/content/sounds/fsClock.mp3'},
-    // {id: 'parSound', src: 'static/img/content/sounds/par.mp3'},
-    // {id: 'pressureSound', src: 'static/img/content/sounds/pressure.mp3'},
-    // {id: 'smehSound', src: 'static/img/content/sounds/smeh.mp3'},
+
 
     // fs module
     {id: 'fsMachineBG', src: 'static/img/content/fs/fsMachineBG.png'},

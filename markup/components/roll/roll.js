@@ -19,8 +19,8 @@ export let roll = (function () {
         longRowsNumber: 30,
         gameX: 100,
         gameY: 89,
-        elementHalfWidth: 174,
-        elementHalfHeight: 161
+        elementHalfWidth: 131,
+        elementHalfHeight: 128
     };
 
     // Container
@@ -117,7 +117,7 @@ export let roll = (function () {
 
     function createColumn(startArray, endArray) {
         const loader = storage.read('loadResult');
-        const ss = loader.getResult('new_elements');
+        const ss = loader.getResult('elements');
         const column = new createjs.Container();
         for (let i = 0; i < longRowsNumber; i++) {
             let element;
@@ -142,7 +142,7 @@ export let roll = (function () {
 
     function updateColumn(startArray, endArray, column) {
         const loader = storage.read('loadResult');
-        const ss = loader.getResult('new_elements');
+        const ss = loader.getResult('elements');
         for (let i = 0; i < longRowsNumber; i++) {
             if (i < rowsNumber) {
                 const elementNumber = endArray[i];
@@ -187,7 +187,7 @@ export let roll = (function () {
             // TODO: createTopGameController
             initTopGameContainer();
             let topContainer = [];
-            const ss = loader.getResult('new_elements');
+            const ss = loader.getResult('elements');
             for (let indColumn = 0; indColumn < columnsNumber; indColumn++) {
                 topContainer[indColumn] = [];
                 for (let indRow = 0; indRow < 3; indRow++) {

@@ -41,8 +41,8 @@ export let preloader = (function () {
         const coin = new c.Sprite(coinSS, 'coin').set({
             name: 'preloaderCoin',
             y: 200,
-            scaleX: 0.9,
-            scaleY: 0.9,
+            scaleX: 1,
+            scaleY: 1,
             framerate: 24
         });
         utils.getCenterPoint(line);

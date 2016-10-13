@@ -72,6 +72,45 @@ export let utils = (function () {
         return storage.read('currentBalance').betSum > storage.read('currentBalance').coinsSum;
     }
 
+    function findObject(id) {
+        $(window).off('keydown');
+        window.searchObject = id;
+        let stage = storage.read('stage');
+        // console.log(stage);
+        stage.on('click', (event) => {
+            // console.log('i am here');
+            let x = event.rawX;
+            let y = event.rawY;
+            let objects = stage.getObjectsUnderPoint(x, y, 0);
+            let myObj = objects.filter((obj) => {
+                if (obj.name === window.searchObject) {
+                    console.warn('Object checked!');
+                    $(window).on('keydown', (event) => {
+                        switch (event.keyCode) {
+                            case 40: // Down
+                                obj.y += 1;
+                                console.warn(`${obj.name} coords: ${obj.x}, ${obj.y}`);
+                                break;
+                            case 38: // Up
+                                obj.y -= 1;
+                                console.warn(`${obj.name} coords: ${obj.x}, ${obj.y}`);
+                                break;
+                            case 37: // Left
+                                obj.x -= 1;
+                                console.warn(`${obj.name} coords: ${obj.x}, ${obj.y}`);
+                                break;
+                            case 39: // Left
+                                obj.x += 1;
+                                console.warn(`${obj.name} coords: ${obj.x}, ${obj.y}`);
+                                break;
+                        }
+                    });
+                }
+            // console.warn('Stage objects:', stage.getObjectsUnderPoint(x, y, 2));
+            });
+        });
+    }
+
     return {
         request,
         showPopup,
@@ -83,6 +122,7 @@ export let utils = (function () {
         gameHeight,
         elementWidth,
         elementHeight,
-        lowBalance
+        lowBalance,
+        findObject
     };
 })();

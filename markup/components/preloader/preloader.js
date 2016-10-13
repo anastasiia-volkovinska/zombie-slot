@@ -89,28 +89,28 @@ export let preloader = (function () {
         });
         utils.getCenterPoint(preloaderBaraban);
 
-        const preloaderBarabanBG = new c.Sprite(loader.getResult('addedElements'));
-        preloaderBarabanBG.set({
-            name: 'preloaderBarabanBG',
-            x: w / 2,
-            y: h / 2 + 241,
-            framerate: 4,
-            scaleX: 0.55,
-            scaleY: 0.55
-        });
-        utils.getCenterPoint(preloaderBarabanBG);
-        preloaderBarabanBG.gotoAndStop(8);
-
-        preloaderBaraban.play();
-        preloaderBaraban.on('animationend', function () {
-            preloaderPlay.visible = true;
-            preloaderBaraban.gotoAndStop(7);
-            preloaderBaraban.stop();
-            const tl = new TimelineMax({repeat: -1});
-            tl.to(preloaderLuchi, 30, {rotation: 360, alpha: 0.1, ease: Power1.easeInOut, yoyo: true});
-            const tl2 = new TimelineMax({repeat: -1});
-            tl2.to(preloaderBaraban, 3, {rotation: 360, ease: Power0.easeNone});
-        });
+        // const preloaderBarabanBG = new c.Sprite(loader.getResult('addedElements'));
+        // preloaderBarabanBG.set({
+        //     name: 'preloaderBarabanBG',
+        //     x: w / 2,
+        //     y: h / 2 + 241,
+        //     framerate: 4,
+        //     scaleX: 0.55,
+        //     scaleY: 0.55
+        // });
+        // utils.getCenterPoint(preloaderBarabanBG);
+        // preloaderBarabanBG.gotoAndStop(8);
+        //
+        // preloaderBaraban.play();
+        // preloaderBaraban.on('animationend', function () {
+        //     preloaderPlay.visible = true;
+        //     preloaderBaraban.gotoAndStop(7);
+        //     preloaderBaraban.stop();
+        //     const tl = new TimelineMax({repeat: -1});
+        //     tl.to(preloaderLuchi, 30, {rotation: 360, alpha: 0.1, ease: Power1.easeInOut, yoyo: true});
+        //     const tl2 = new TimelineMax({repeat: -1});
+        //     tl2.to(preloaderBaraban, 3, {rotation: 360, ease: Power0.easeNone});
+        // });
 
         const preloaderLogo = new c.Bitmap(loader.getResult('logo'));
         preloaderLogo.set({

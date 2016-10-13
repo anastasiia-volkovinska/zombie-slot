@@ -9,13 +9,13 @@ export let init = (function () {
     const defaultConfig = {
         device: 'mobile',
         mode: 'normal',
-        userID: 1,
-        casinoID: 1
+        userID: 2,
+        casinoID: 2
     };
 
     // qo2 - двери, qo5 - фри-спины, qos - стандартный режим
     const mode = {
-        normal: 'snail3',
+        normal: 'zombie',
         fsBonus: 'snail4',
         bonus: 'qo2'
     };

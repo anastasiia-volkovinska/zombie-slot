@@ -129,36 +129,36 @@ export let preloader = (function () {
             y: 290,
             scaleX: 0.7,
             scaleY: 0.7,
-            visible: false,
+            // visible: false,
             cursor: 'pointer'
         });
         utils.getCenterPoint(preloaderPlay);
 
-        let lines = [];
-        const line = new c.Bitmap(loader.getResult('fonLine')).set({
-            name: 'line',
-            x: 350
-        });
-        let amount = Math.random() * 5 + 2;
-        for (let i = 0; i < amount; i++) {
-            let newLine = line.clone();
-            newLine.x = Math.random() * 1280;
-            newLine.alpha = Math.random();
-            lines.push(newLine);
-        }
-        moveLine(lines);
+        // let lines = [];
+        // const line = new c.Bitmap(loader.getResult('fonLine')).set({
+        //     name: 'line',
+        //     x: 350
+        // });
+        // let amount = Math.random() * 5 + 2;
+        // for (let i = 0; i < amount; i++) {
+        //     let newLine = line.clone();
+        //     newLine.x = Math.random() * 1280;
+        //     newLine.alpha = Math.random();
+        //     lines.push(newLine);
+        // }
+        // moveLine(lines);
+        //
+        // const line2 = new c.Bitmap(loader.getResult('fonLine')).set({
+        //     name: 'line2',
+        //     x: 0,
+        //     alpha: 0.6
+        // });
+        // TweenMax.to(line2, 30, {x: 1280, repeat: -1});
 
-        const line2 = new c.Bitmap(loader.getResult('fonLine')).set({
-            name: 'line2',
-            x: 0,
-            alpha: 0.6
-        });
-        TweenMax.to(line2, 30, {x: 1280, repeat: -1});
-
-        preloaderCache.addChild(preloaderBGSky, preloaderLuchi, preloaderBG, preloaderBarabanBG, preloaderBaraban, preloaderLogo, line2);
-        lines.forEach((line) => {
-            preloaderCache.addChild(line);
-        });
+        preloaderCache.addChild(preloaderBGSky, preloaderLuchi, preloaderBG, preloaderLogo);
+        // lines.forEach((line) => {
+        //     preloaderCache.addChild(line);
+        // });
         // preloaderCache.cache(0, 0, w, h);
         preloaderContainer.addChild(preloaderCache, preloaderPlay);
         preloaderContainer.on('click', function (e) {

@@ -146,8 +146,8 @@ export let win = (function () {
         });
         const winLineText = new c.Text(lineWin, '20px Helvetica', '#f0e194').set({
             name: 'winLineText',
-            x: 35, // Magic Numbers
-            y: 37, // Magic Numbers
+            x: 38, // Magic Numbers
+            y: 33, // Magic Numbers
             textAlign: 'center',
             textBaseline: 'middle',
             shadow: new c.Shadow('#C19433', 0, 0, 8)

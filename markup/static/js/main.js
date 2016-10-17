@@ -167,3 +167,4 @@ export { events };
 export { win };
 export { freeSpin };
 export { autoplay };
+export { utils };

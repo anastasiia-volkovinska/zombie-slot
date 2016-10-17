@@ -1,0 +1,76 @@
+{
+
+"images": [
+    "static/img/content/new/moreElements.png"
+],
+
+"framerate": 15,
+
+"frames": [
+    [1, 1, 387, 156, 0, -55, 0],
+    [390, 1, 329, 62, 0, 0, 0],
+    [721, 1, 202, 50, 0, -127, 0],
+    [925, 1, 156, 37, 0, -172, 0],
+    [1083, 1, 172, 168, 0, -149, -150],
+    [1257, 1, 159, 158, 0, -154, -156],
+    [1418, 1, 145, 152, 0, -161, -157],
+    [1565, 1, 159, 174, 0, -153, -144],
+    [1726, 1, 166, 185, 0, -153, -137],
+    [1, 188, 174, 209, 0, -148, -120],
+    [177, 188, 143, 158, 0, -165, -153],
+    [322, 188, 141, 156, 0, -166, -155],
+    [465, 188, 170, 174, 0, -148, -147],
+    [637, 188, 259, 236, 0, -105, -116],
+    [898, 188, 271, 247, 0, -99, -108],
+    [1171, 188, 269, 238, 0, -103, -107],
+    [1442, 188, 258, 258, 0, -105, -106],
+    [1702, 188, 254, 256, 0, -105, -114],
+    [1, 448, 80, 79, 0, -7, -9],
+    [83, 448, 67, 70, 0, -14, -12],
+    [152, 448, 56, 61, 0, -19, -15],
+    [210, 448, 63, 63, 0, -16, -17],
+    [275, 448, 74, 73, 0, -10, -12],
+    [351, 448, 68, 68, 0, -13, -14],
+    [421, 448, 95, 94, 0, 0, -1],
+    [518, 448, 65, 67, 0, -15, -14],
+    [585, 448, 58, 65, 0, -19, -13],
+    [645, 448, 69, 70, 0, -13, -13],
+    [716, 448, 80, 79, 0, -7, -9]
+],
+
+"animations": {
+    "Path": { "frames": [0, 1, 2, 3] },
+    "Splash-Splash1": { "frames": [4] },
+    "Splash-Splash2": { "frames": [5] },
+    "Splash-Splash3": { "frames": [6] },
+    "Splash-Splash4": { "frames": [7] },
+    "Splash-Splash5": { "frames": [8] },
+    "Splash-Splash6": { "frames": [9] },
+    "Splash-Splash7": { "frames": [10] },
+    "Splash-Splash8": { "frames": [11] },
+    "Splash-Splash9": { "frames": [12] },
+    "Splash-Splash10": { "frames": [13] },
+    "Splash-Splash11": { "frames": [14] },
+    "Splash-Splash12": { "frames": [15] },
+    "Splash-Splash13": { "frames": [16] },
+    "Splash-Splash14": { "frames": [17] },
+    "Zomb-Candle0": { "frames": [18] },
+    "Zomb-Candle1": { "frames": [19] },
+    "Zomb-Candle2": { "frames": [20] },
+    "Zomb-Candle3": { "frames": [21] },
+    "Zomb-Candle4": { "frames": [22] },
+    "Zomb-Candle5": { "frames": [23] },
+    "Zomb-Candle6": { "frames": [24] },
+    "Zomb-Candle7": { "frames": [25] },
+    "Zomb-Candle8": { "frames": [26] },
+    "Zomb-Candle9": { "frames": [27] },
+    "Zomb-Candle10": { "frames": [28] },
+    "splash": { "frames": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:207dc1fffeca392326056970d9aa4ceb:e93fa9e0b076110ea57566d251c45606:279ecfc21494376dabcb02c89899b0e7$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

@@ -38,11 +38,12 @@ export const mainManifest = [
     {id: 'gameShadow', src: 'static/img/content/bg/gameShadow.png'},
 
     // win module
-    {id: 'newLight', src: 'static/img/content/new/newLight_yellow.png'},
+    // {id: 'newLight', src: 'static/img/content/new/newLight_yellow.png'},
     {id: 'winLineRect', src: 'static/img/content/lines/winLineRect.png'},
     {id: 'winTotalRect', src: 'static/img/content/lines/winTotalRect.png'},
     {id: 'bulletpath', src: 'static/img/content/lines/bulletpath.json', type: 'spritesheet'},
     {id: 'addedElements', src: 'static/img/content/new/addedElements.json', type: 'spritesheet'},
+    {id: 'moreElements', src: 'static/img/content/new/moreElements.json', type: 'spritesheet'},
 
     // menu module
     {id: 'menu', src: 'static/img/content/menu/menu.json', type: 'spritesheet'},

@@ -93,18 +93,18 @@ export let win = (function () {
         const amount = Math.round(Math.random() * 80) + 20;
         const linesCoords = storage.read('linesCoords');
         const loader = storage.read('loadResult');
-        const ss = loader.getResult('bulletpath');
+        const ss = loader.getResult('moreElements');
         const bullet = new c.Sprite(ss).set({
             x: linesCoords[number - 1][0].x,
             y: linesCoords[number - 1][0].y,
-            scaleX: 0.2,
-            scaleY: 0.2
+            scaleX: 0.5,
+            scaleY: 0.5
         });
         bullet.gotoAndStop(0);
         lightMas.push(bullet);
         winLinesContainer.addChild(bullet);
         utils.getCenterPoint(bullet);
-        for (let i = 1; i < 6; i++) {
+        for (let i = 1; i < 4; i++) {
             for (let j = 1; j < 5; j++) {
                 const trace = bullet.clone();
                 trace.gotoAndStop(i);
@@ -144,13 +144,13 @@ export let win = (function () {
             scaleX: 0.9,
             scaleY: 0.9
         });
-        const winLineText = new c.Text(lineWin, '20px Helvetica', '#f0e194').set({
+        const winLineText = new c.Text(lineWin, '20px Helvetica', '#9be20a').set({
             name: 'winLineText',
             x: 38, // Magic Numbers
             y: 33, // Magic Numbers
             textAlign: 'center',
             textBaseline: 'middle',
-            shadow: new c.Shadow('#C19433', 0, 0, 8)
+            shadow: new c.Shadow('#9be20a', 0, 0, 8)
         });
         if ((winLineText.text + '').length > 3) {
             winLineText.font = '14px Helvetica';
@@ -186,28 +186,22 @@ export let win = (function () {
 
     function drawLineFire(number) {
         const loader = storage.read('loadResult');
-        const ss = loader.getResult('addedElements');
+        const ss = loader.getResult('moreElements');
         const lineFire = new c.Sprite(ss, 'splash').set({
             name: 'lineFire',
             x: parameters[number].x - winRectsContainer.x, // Magic Numbers
-            y: parameters[number].y - winRectsContainer.y + 3,
-            scaleX: 1.2,
-            scaleY: 1.2
+            y: parameters[number].y - winRectsContainer.y,
+            scaleX: 0.4,
+            scaleY: 0.4
         });
         const lineFire2 = new c.Sprite(ss, 'splash').set({
             name: 'lineFire2',
-            x: parameters[number].x + 980 - winRectsContainer.x - 3, // Magic Numbers
-            y: parameters[number].y - winRectsContainer.y + 5,
-            scaleX: 1.2,
-            scaleY: 1.2
+            x: parameters['1' + number].x - winRectsContainer.x, // Magic Numbers
+            y: parameters['1' + number].y - winRectsContainer.y,
+            scaleX: 0.4,
+            scaleY: 0.4
         });
-        // if (storage.readState('side') === 'right') {
-        //     lineFire.x += 150; // Magic Numbers
-        //     lineFire2.x += 150; // Magic Numbers
-        // } else if (storage.readState('side') === 'center') {
-        //     lineFire.x += 80; // Magic Numbers
-        //     lineFire2.x += 80; // Magic Numbers
-        // }
+
         lineFire.on('animationend', () => { lineFire.stop(); });
         lineFire2.on('animationend', () => { lineFire2.stop(); });
         utils.getCenterPoint(lineFire);

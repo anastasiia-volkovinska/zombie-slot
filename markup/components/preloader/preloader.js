@@ -41,8 +41,8 @@ export let preloader = (function () {
         const coin = new c.Sprite(coinSS, 'coin').set({
             name: 'preloaderCoin',
             y: 200,
-            scaleX: 1,
-            scaleY: 1,
+            scaleX: 0.5,
+            scaleY: 0.5,
             framerate: 24
         });
         utils.getCenterPoint(line);
@@ -67,27 +67,27 @@ export let preloader = (function () {
         const preloaderContainer = new c.Container().set({ name: 'preloaderContainer' });
         const preloaderCache = new c.Container().set({ name: 'preloaderCache' });
         const preloaderBG = new c.Bitmap(loader.getResult('preloaderBG')).set({ name: 'preloaderBG' });
-        const preloaderBGSky = new c.Bitmap(loader.getResult('mainBGSky')).set({ name: 'preloaderBGSky' });
-        const preloaderLuchi = new c.Bitmap(loader.getResult('luchi'));
-        preloaderLuchi.set({
-            name: 'preloaderLuchi',
-            x: w / 2,
-            y: h / 2 + 150,
-            scaleX: 0.6,
-            scaleY: 0.6
-        });
-        utils.getCenterPoint(preloaderLuchi);
-
-        const preloaderBaraban = new c.Sprite(loader.getResult('addedElements'), 'baraban');
-        preloaderBaraban.set({
-            name: 'preloaderBaraban',
-            x: w / 2,
-            y: h / 2 + 140,
-            framerate: 4,
-            scaleX: 0.55,
-            scaleY: 0.55
-        });
-        utils.getCenterPoint(preloaderBaraban);
+        // const preloaderBGSky = new c.Bitmap(loader.getResult('mainBGSky')).set({ name: 'preloaderBGSky' });
+        // const preloaderLuchi = new c.Bitmap(loader.getResult('luchi'));
+        // preloaderLuchi.set({
+        //     name: 'preloaderLuchi',
+        //     x: w / 2,
+        //     y: h / 2 + 150,
+        //     scaleX: 0.6,
+        //     scaleY: 0.6
+        // });
+        // utils.getCenterPoint(preloaderLuchi);
+        //
+        // const preloaderBaraban = new c.Sprite(loader.getResult('addedElements'), 'baraban');
+        // preloaderBaraban.set({
+        //     name: 'preloaderBaraban',
+        //     x: w / 2,
+        //     y: h / 2 + 140,
+        //     framerate: 4,
+        //     scaleX: 0.55,
+        //     scaleY: 0.55
+        // });
+        // utils.getCenterPoint(preloaderBaraban);
 
         // const preloaderBarabanBG = new c.Sprite(loader.getResult('addedElements'));
         // preloaderBarabanBG.set({
@@ -116,7 +116,7 @@ export let preloader = (function () {
         preloaderLogo.set({
             name: 'preloaderLogo',
             x: w / 2,
-            y: 115,
+            y: 165,
             scaleX: 0.7,
             scaleY: 0.7
         });
@@ -126,7 +126,7 @@ export let preloader = (function () {
         preloaderPlay.set({
             name: 'preloaderPlay',
             x: w / 2,
-            y: 290,
+            y: 370,
             scaleX: 0.7,
             scaleY: 0.7,
             // visible: false,
@@ -155,7 +155,7 @@ export let preloader = (function () {
         // });
         // TweenMax.to(line2, 30, {x: 1280, repeat: -1});
 
-        preloaderCache.addChild(preloaderBGSky, preloaderLuchi, preloaderBG, preloaderLogo);
+        preloaderCache.addChild(preloaderBG, preloaderLogo);
         // lines.forEach((line) => {
         //     preloaderCache.addChild(line);
         // });

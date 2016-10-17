@@ -28,14 +28,14 @@ export function drawFreeSpinsBG() {
     const mainBG = bgContainer.getChildByName('mainBG');
     mainBG.alpha = 0;
 
-    const fsMachineBG = new c.Bitmap(loader.getResult('fsMachineBG')).set({
-        name: 'fsMachineBG',
-        x: 62,
-        y: 5
-    });
+    // const fsMachineBG = new c.Bitmap(loader.getResult('fsMachineBG')).set({
+    //     name: 'fsMachineBG',
+    //     x: 62,
+    //     y: 5
+    // });
 
     mainContainer.uncache();
-    mainContainer.addChildAt(fsMachineBG, mainContainer.getChildIndex(gameBG) + 1);
+    // mainContainer.addChildAt(fsMachineBG, mainContainer.getChildIndex(gameBG) + 1);
 
     const fsBG = new c.Bitmap(loader.getResult('fsBG')).set({
         name: 'fsBG'
@@ -108,14 +108,14 @@ export function drawFreeSpinsBG() {
 
     if (storage.read('device') === 'mobile') {
         drawTableContainer();
-        drawMultiContainer();
+        // drawMultiContainer();
     }
-    if (config.currentLevel) {
-        events.trigger('fs:rotateGun', config.currentLevel);
-    }
-    if (config.currentMulti) {
-        events.trigger('fs:changeMultiplier', config.currentMulti);
-    }
+    // if (config.currentLevel) {
+    //     events.trigger('fs:rotateGun', config.currentLevel);
+    // }
+    // if (config.currentMulti) {
+    //     events.trigger('fs:changeMultiplier', config.currentMulti);
+    // }
 
 }
 
@@ -129,68 +129,119 @@ function drawTableContainer() {
     });
 
     // freeSpin count
-    const fsTotalCountBG = new c.Sprite(loader.getResult('someFSelements')).set({
+    const fsTotalCountBG = new c.Bitmap(loader.getResult('fsTotalTable')).set({
         name: 'fsTotalCountBG',
-        x: -110,
-        y: 350
+        x: 220,
+        y: 65
     });
     utils.getCenterPoint(fsTotalCountBG);
-    fsTotalCountBG.gotoAndStop(15);
 
-    const fsTotalText = new c.Text('FREESPIN', '24px Helvetica', '#fff').set({
-        x: 80,
-        y: 480,
-        name: 'fsTotalText',
-        textAlign: 'center',
-        textBaseline: 'middle',
-        shadow: new c.Shadow('#444', 0, 0, 8)
-    });
-    const fsTotalCountText = new c.Text(config.currentCount + '', '75px Helvetica', '#f0e194').set({
-        x: 82,
-        y: 560,
+    const fsTotalCountText = new c.BitmapText(config.currentCount + '', loader.getResult('numbersFS')).set({
+        x: fsTotalCountBG.x - 12,
+        y: fsTotalCountBG.y - 10,
         name: 'fsTotalCountText',
-        textAlign: 'center',
-        textBaseline: 'middle',
-        shadow: new c.Shadow('#C19433', 0, 0, 8)
+        scaleX: 0.6,
+        scaleY: 0.6
     });
+    utils.getCenterPoint(fsTotalCountText);
+    // console.log('number:', fsTotalCountText);
 
     // freeSpin drum
-    const fsBulletsBG = new c.Bitmap(loader.getResult('fsDrumBG')).set({
-        name: 'fsBulletsBG',
-        x: 80,
-        y: 290
-    });
-    const fsBulletsText = new c.Text('BULLETS', '24px Helvetica', '#fff').set({
-        x: fsBulletsBG.x,
-        y: fsBulletsBG.y - 155,
-        name: 'fsBulletsText',
-        textAlign: 'center',
-        textBaseline: 'middle',
-        shadow: new c.Shadow('#444', 0, 0, 8)
-    });
-    const bullet = new c.Sprite(loader.getResult('new_elements')).set({
-        name: 'bullet',
-        x: 10,
-        y: 170,
-        scaleX: 0.55,
-        scaleY: 0.55
-    });
-    utils.getCenterPoint(fsBulletsBG);
-    utils.getCenterPoint(bullet);
-    bullet.gotoAndStop(199);
+    // const fsBulletsBG = new c.Bitmap(loader.getResult('fsDrumBG')).set({
+    //     name: 'fsBulletsBG',
+    //     x: 80,
+    //     y: 290
+    // });
+    // const fsBulletsText = new c.Text('BULLETS', '24px Helvetica', '#fff').set({
+    //     x: fsBulletsBG.x,
+    //     y: fsBulletsBG.y - 155,
+    //     name: 'fsBulletsText',
+    //     textAlign: 'center',
+    //     textBaseline: 'middle',
+    //     shadow: new c.Shadow('#444', 0, 0, 8)
+    // });
+    // const bullet = new c.Sprite(loader.getResult('elements')).set({
+    //     name: 'bullet',
+    //     x: 10,
+    //     y: 170,
+    //     scaleX: 0.55,
+    //     scaleY: 0.55
+    // });
+    // utils.getCenterPoint(fsBulletsBG);
+    // utils.getCenterPoint(bullet);
+    // bullet.gotoAndStop(274);
+    //
+    // const baraban = new c.Sprite(loader.getResult('addedElements')).set({
+    //     name: 'baraban',
+    //     x: 80,
+    //     y: 350,
+    //     scaleX: 0.3,
+    //     scaleY: 0.3
+    // });
+    // utils.getCenterPoint(baraban);
+    // baraban.gotoAndStop(1);
 
-    const baraban = new c.Sprite(loader.getResult('addedElements')).set({
-        name: 'baraban',
-        x: 80,
-        y: 350,
-        scaleX: 0.3,
-        scaleY: 0.3
+    const fsMultiTable = new c.Bitmap(loader.getResult('multiTable')).set({
+        name: 'fsMultiTable',
+        x: 370,
+        y: 35
     });
-    utils.getCenterPoint(baraban);
-    baraban.gotoAndStop(1);
+    utils.getCenterPoint(fsMultiTable);
 
-    fsTableContainer.addChild(fsTotalCountBG, fsTotalText, fsTotalCountText, fsBulletsBG, fsBulletsText, bullet, baraban);
-    stage.addChildAt(fsTableContainer, stage.getChildIndex(stage.getChildByName('bgContainer')) + 1);
+    const fsMozg = new c.Sprite(loader.getResult('mozg'), 'mozgIdle').set({
+        name: 'fsMozg',
+        x: 120,
+        y: 160,
+        scaleX: 0.7,
+        scaleY: 0.7
+    });
+    utils.getCenterPoint(fsMozg);
+
+    // const mozgMove = new TimelineMax({repeat: -1, yoyo: true, easeOut: Power1});
+    // mozgMove.to(fsMozg, 2, {y: 200})
+    //         .to(fsMozg, 2, {y: 160});
+
+    const mozgi = new c.Bitmap(loader.getResult('mozgi')).set({
+        name: 'mozgi',
+        x: 307,
+        y: 28
+    });
+    utils.getCenterPoint(mozgi);
+
+    const fsZombie = new c.Sprite(loader.getResult('zombieWin'), 'zombieWin2').set({
+        name: 'fsZombie',
+        x: 110,
+        y: 370,
+        scaleX: 0.9,
+        scaleY: 0.9
+    });
+    utils.getCenterPoint(fsZombie);
+
+    const altar = new c.Bitmap(loader.getResult('altary')).set({
+        name: 'altar',
+        x: 150,
+        y: 440,
+        scaleX: 0.6,
+        scaleY: 0.6
+    });
+    utils.getCenterPoint(altar);
+
+    const multiRip = new c.Bitmap(loader.getResult('multiRip')).set({
+        name: 'multiRip',
+        x: 150,
+        y: 630
+    });
+    utils.getCenterPoint(multiRip);
+
+    const x1 = new c.Bitmap(loader.getResult('x1')).set({
+        name: 'x1',
+        x: 150,
+        y: 630
+    });
+    utils.getCenterPoint(x1);
+
+    fsTableContainer.addChild(fsMultiTable, fsTotalCountBG, fsTotalCountText, fsMozg, mozgi, altar, multiRip, x1, fsZombie);
+    stage.addChildAt(fsTableContainer, stage.getChildIndex(stage.getChildByName('mainContainer')) + 1);
 }
 
 function drawMultiContainer() {

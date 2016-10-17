@@ -239,7 +239,8 @@ export let freeSpin = (function () {
         buttonsContainer.visible = false;
         fsTotalWin = 0;
         if (storage.read('device') === 'mobile') {
-            events.trigger('menu:changeSide', 'center');
+            // storage.changeState('side', 'right');
+            events.trigger('menu:changeSide', 'right');
         }
         drawFreeSpinsBG();
 
@@ -272,39 +273,46 @@ export let freeSpin = (function () {
             name: 'transitionBG',
             alpha: 0
         });
-        let transitionBGSky = new createjs.Bitmap(loader.getResult('mainBGSky')).set({
-            name: 'transitionBGSky'
-        });
-
-        const transitionLuchi = new c.Bitmap(loader.getResult('luchi'));
-        transitionLuchi.set({
-            name: 'transitionLuchi',
-            x: utils.width / 2,
-            y: utils.height / 2 + 150,
-            scaleX: 0.6,
-            scaleY: 0.6
-        });
-        utils.getCenterPoint(transitionLuchi);
-        const tl = new TimelineMax({repeat: -1, yoyo: true});
-        tl.to(transitionLuchi, 30, {rotation: 360, alpha: 0.1, ease: Power1.easeInOut});
+        // let transitionBGSky = new createjs.Bitmap(loader.getResult('mainBGSky')).set({
+        //     name: 'transitionBGSky'
+        // });
+        //
+        // const transitionLuchi = new c.Bitmap(loader.getResult('luchi'));
+        // transitionLuchi.set({
+        //     name: 'transitionLuchi',
+        //     x: utils.width / 2,
+        //     y: utils.height / 2 + 150,
+        //     scaleX: 0.6,
+        //     scaleY: 0.6
+        // });
+        // utils.getCenterPoint(transitionLuchi);
+        // const tl = new TimelineMax({repeat: -1, yoyo: true});
+        // tl.to(transitionLuchi, 30, {rotation: 360, alpha: 0.1, ease: Power1.easeInOut});
 
         let transitionFSText = new createjs.Bitmap(loader.getResult('freeSpins')).set({
             name: 'transitionFSText',
-            x: (1280 - 825 * 0.7) / 2,
-            y: 50,
-            scaleX: 0.7,
-            scaleY: 0.7
+            x: utils.width / 2,
+            y: utils.height / 2 - 200,
+            scaleX: 0.1,
+            scaleY: 0.1,
+            alpha: 0
         });
-        let transitionWinText = new createjs.BitmapText(config.currentCount + '', loader.getResult('addedElements')).set({
+        utils.getCenterPoint(transitionFSText);
+
+        let transitionWinText = new createjs.BitmapText(config.currentCount + '', loader.getResult('numbers')).set({
             name: 'transitionWinText',
+            x: utils.width / 2 - 20,
+            y: utils.height / 2 - 50,
             scaleX: 0.1,
             scaleY: 0.1,
             alpha: 0
         });
         console.log('config.currentCount', config.currentCount);
-        let bounds = transitionWinText.getBounds();
-        transitionWinText.x = 1280 - bounds.width * 0.7 >> 1;
-        transitionWinText.y = (720 - bounds.height * 0.7 >> 1) - 50;
+        utils.getCenterPoint(transitionWinText);
+        // let bounds = transitionWinText.getBounds();
+        // transitionWinText.x = 1280 - bounds.width * 0.7 >> 1;
+        // transitionWinText.y = (720 - bounds.height * 0.7 >> 1) - 50;
+
 
         let transitionButton = new createjs.Bitmap(loader.getResult('play')).set({
             name: 'transitionButton',
@@ -316,26 +324,29 @@ export let freeSpin = (function () {
         utils.getCenterPoint(transitionButton);
         utils.setInCenterOf(transitionButton, utils.width);
 
-        let lines = [];
-        const line = new c.Bitmap(loader.getResult('fonLine')).set({
-            name: 'line',
-            x: 350
-        });
-        let amount = Math.random() * 5 + 2;
-        for (let i = 0; i < amount; i++) {
-            let newLine = line.clone();
-            newLine.x = Math.random() * 1280;
-            newLine.alpha = Math.random();
-            lines.push(newLine);
-        }
-        moveLine(lines);
-
-        const line2 = new c.Bitmap(loader.getResult('fonLine')).set({
-            name: 'line2',
-            x: 0,
-            alpha: 0.6
-        });
-        TweenMax.to(line2, 30, {x: 1280, repeat: -1});
+        let tl0 = new TimelineMax();
+        tl0.to(transitionFSText, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)})
+            .to(transitionWinText, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)}, '-=0.4');
+        // let lines = [];
+        // const line = new c.Bitmap(loader.getResult('fonLine')).set({
+        //     name: 'line',
+        //     x: 350
+        // });
+        // let amount = Math.random() * 5 + 2;
+        // for (let i = 0; i < amount; i++) {
+        //     let newLine = line.clone();
+        //     newLine.x = Math.random() * 1280;
+        //     newLine.alpha = Math.random();
+        //     lines.push(newLine);
+        // }
+        // moveLine(lines);
+        //
+        // const line2 = new c.Bitmap(loader.getResult('fonLine')).set({
+        //     name: 'line2',
+        //     x: 0,
+        //     alpha: 0.6
+        // });
+        // TweenMax.to(line2, 30, {x: 1280, repeat: -1});
 
         transitionContainer.on('click', function () {
             createjs.Sound.stop('startPerehodSound');
@@ -347,18 +358,18 @@ export let freeSpin = (function () {
                 .to({alpha: 0}, 500);
         }, transitionContainer, true);
 
-        transitionContainer.addChild(transitionBGSky, transitionLuchi, transitionBG, transitionWinText, transitionFSText, transitionButton, line2);
-        lines.forEach((line) => {
-            transitionContainer.addChild(line);
-        });
+        transitionContainer.addChild(transitionBG, transitionWinText, transitionFSText, transitionButton);
+        // lines.forEach((line) => {
+        //     transitionContainer.addChild(line);
+        // });
         stage.addChild(transitionContainer);
         let tl2 = new TimelineMax();
         tl2.to(transitionBG, 0.4, {alpha: 1})
             .call(function () {
                 events.trigger('drawFreeSpins', fsStartData);
             })
-            .from(transitionFSText, 0.4, {y: 900, alpha: 0}, '-=0.2')
-            .to(transitionWinText, 0.4, {scaleX: 0.7, scaleY: 0.7, alpha: 1}, '-=0.2')
+            // .from(transitionFSText, 0.4, {y: 900, alpha: 0}, '-=0.2')
+            // .to(transitionWinText, 0.4, {scaleX: 0.7, scaleY: 0.7, alpha: 1}, '-=0.2')
             .from(transitionButton, 0.4, {alpha: 0}, '-=0.2');
     }
 
@@ -376,6 +387,7 @@ export let freeSpin = (function () {
         }
         const fsTotalCountText = fsTableContainer.getChildByName('fsTotalCountText');
         fsTotalCountText.text = number + '';
+        utils.getCenterPoint(fsTotalCountText);
 
         const countBounds = fsTotalCountText.getBounds();
         console.log('I must change fsCount', number);
@@ -527,7 +539,7 @@ export let freeSpin = (function () {
         bgContainer.uncache();
         mainContainer.uncache();
         if (storage.read('device') === 'mobile') {
-            storage.changeState('side', 'left');
+            // storage.changeState('side', 'left');
             events.trigger('menu:changeSide', 'left');
         }
     }
@@ -549,11 +561,11 @@ export let freeSpin = (function () {
         let finishBG = new createjs.Bitmap(loader.getResult('preloaderBG')).set({
             name: 'finishBG'
         });
-        let finishBGSky = new createjs.Bitmap(loader.getResult('mainBGSky')).set({
-            name: 'transitionBGSky'
-        });
-        const darkness = new c.Shape();
-        darkness.graphics.beginFill('rgba(0, 0, 0, 0.3)').drawRect(0, 0, utils.width, utils.height);
+        // let finishBGSky = new createjs.Bitmap(loader.getResult('mainBGSky')).set({
+        //     name: 'transitionBGSky'
+        // });
+        // const darkness = new c.Shape();
+        // darkness.graphics.beginFill('rgba(0, 0, 0, 0.3)').drawRect(0, 0, utils.width, utils.height);
 
         let finishText;
         if (config.currentMulti !== 8) {
@@ -565,33 +577,41 @@ export let freeSpin = (function () {
         finishText.set({
             name: 'finishText',
             y: 120,
-            scaleX: 0.7,
-            scaleY: 0.7
+            scaleX: 0.1,
+            scaleY: 0.1,
+            alpha: 0
         });
         utils.getCenterPoint(finishText);
         utils.setInCenterOf(finishText, utils.width);
 
-        const finishLuchi = new c.Bitmap(loader.getResult('luchi'));
-        finishLuchi.set({
-            name: 'finishLuchi',
-            x: utils.width / 2,
-            y: utils.height / 2 + 150,
-            scaleX: 0.6,
-            scaleY: 0.6
-        });
-        utils.getCenterPoint(finishLuchi);
-        const tl = new TimelineMax({repeat: -1, yoyo: true});
-        tl.to(finishLuchi, 30, {rotation: 360, alpha: 0.1, ease: Power1.easeInOut});
+        // const finishLuchi = new c.Bitmap(loader.getResult('luchi'));
+        // finishLuchi.set({
+        //     name: 'finishLuchi',
+        //     x: utils.width / 2,
+        //     y: utils.height / 2 + 150,
+        //     scaleX: 0.6,
+        //     scaleY: 0.6
+        // });
+        // utils.getCenterPoint(finishLuchi);
+        // const tl = new TimelineMax({repeat: -1, yoyo: true});
+        // tl.to(finishLuchi, 30, {rotation: 360, alpha: 0.1, ease: Power1.easeInOut});
 
-        let finishWinText = new createjs.BitmapText(fsTotalWin + '', loader.getResult('addedElements')).set({
-            x: 1280 / 2,
-            y: 720 / 2 - 20, // magic numbers
-            scaleX: 0.7,
-            scaleY: 0.7
+        let finishWinText = new createjs.BitmapText(fsTotalWin + '', loader.getResult('numbers')).set({
+            x: utils.width / 2 - 20,
+            y: utils.height / 2 - 50,
+            scaleX: 0.1,
+            scaleY: 0.1,
+            alpha: 0
         });
-        let bounds = finishWinText.getBounds();
-        finishWinText.regX = bounds.width / 2;
-        finishWinText.regY = bounds.height / 2;
+        utils.getCenterPoint(finishWinText);
+        // let bounds = finishWinText.getBounds();
+        // finishWinText.regX = bounds.width / 2;
+        // finishWinText.regY = bounds.height / 2;
+
+        let tl = new TimelineMax();
+        tl.to(finishText, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)})
+            .to(finishWinText, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)}, '-=0.4');
+
         let finishButton = new createjs.Bitmap(loader.getResult('continue')).set({
             name: 'finishButton',
             y: 580,
@@ -602,31 +622,31 @@ export let freeSpin = (function () {
         utils.getCenterPoint(finishButton);
         utils.setInCenterOf(finishButton, utils.width);
 
-        let lines = [];
-        const line = new c.Bitmap(loader.getResult('fonLine')).set({
-            name: 'line',
-            x: 350
-        });
-        let amount = Math.random() * 5 + 2;
-        for (let i = 0; i < amount; i++) {
-            let newLine = line.clone();
-            newLine.x = Math.random() * 1280;
-            newLine.alpha = Math.random();
-            lines.push(newLine);
-        }
-        moveLine(lines);
+        // let lines = [];
+        // const line = new c.Bitmap(loader.getResult('fonLine')).set({
+        //     name: 'line',
+        //     x: 350
+        // });
+        // let amount = Math.random() * 5 + 2;
+        // for (let i = 0; i < amount; i++) {
+        //     let newLine = line.clone();
+        //     newLine.x = Math.random() * 1280;
+        //     newLine.alpha = Math.random();
+        //     lines.push(newLine);
+        // }
+        // moveLine(lines);
+        //
+        // const line2 = new c.Bitmap(loader.getResult('fonLine')).set({
+        //     name: 'line2',
+        //     x: 0,
+        //     alpha: 0.6
+        // });
+        // TweenMax.to(line2, 30, {x: 1280, repeat: -1});
 
-        const line2 = new c.Bitmap(loader.getResult('fonLine')).set({
-            name: 'line2',
-            x: 0,
-            alpha: 0.6
-        });
-        TweenMax.to(line2, 30, {x: 1280, repeat: -1});
-
-        finishContainer.addChild(finishBGSky, finishLuchi, finishBG, darkness, finishText, finishWinText, finishButton);
-        lines.forEach((line) => {
-            finishContainer.addChild(line);
-        });
+        finishContainer.addChild(finishBG, finishText, finishWinText, finishButton);
+        // lines.forEach((line) => {
+        //     finishContainer.addChild(line);
+        // });
 
         createjs.Tween.get(finishContainer)
             .to({alpha: 1}, 500)
@@ -688,7 +708,7 @@ export let freeSpin = (function () {
             console.warn('storage multi', storage.readState(state));
             if (config.currentMulti != storage.readState(state)) {
                 setTimeout( function () {
-                    changeMultiplier(storage.readState(state));
+                    // changeMultiplier(storage.readState(state));
                     config.currentMulti = storage.readState(state);
                 }, 2000);
             }
@@ -696,8 +716,8 @@ export let freeSpin = (function () {
     }
 
 
-    events.on('fs:rotateGun', rotateFSGun);
-    events.on('fs:changeMultiplier', changeMultiplier);
+    // events.on('fs:rotateGun', rotateFSGun);
+    // events.on('fs:changeMultiplier', changeMultiplier);
     events.on('initFreeSpins', transitionFreeSpins);
     events.on('drawFreeSpins', initFreeSpins);
     events.on('stopFreeSpins', stopFreeSpins);

@@ -300,13 +300,13 @@ export let win = (function () {
                             topElement.gotoAndPlay(`${elementIndex}-w`);
                             let totalFreeSpins = storage.read('rollResponse').TotalFreeSpins;
                             // freeSpin.showTotalFreeSpins(totalFreeSpins);
-                            events.trigger('fs:showTotalFreeSpins', totalFreeSpins);
-                            bulletFSToGun(topElement);
+                            // events.trigger('fs:showTotalFreeSpins', totalFreeSpins);
+                            // bulletFSToGun(topElement);
                         } else {
                             element.gotoAndPlay(`${elementIndex}-w`);
                             let totalFreeSpins = storage.read('rollResponse').TotalFreeSpins;
                             // freeSpin.showTotalFreeSpins(totalFreeSpins);
-                            events.trigger('fs:showTotalFreeSpins', totalFreeSpins);
+                            // events.trigger('fs:showTotalFreeSpins', totalFreeSpins);
                         }
 
                         currWinScatters.push({
@@ -355,7 +355,7 @@ export let win = (function () {
                 element.scaleX = 1;
                 element.scaleY = 1;
                 element.rotation = 0;
-                events.trigger('fs:rotateFSGun');
+                // events.trigger('fs:rotateFSGun');
             }
         });
     }
@@ -455,8 +455,7 @@ export let win = (function () {
         if (winData.winLines.length) {
             drawTotalWin(winData.winLines);
             // createjs.Sound.play('lineWinSound');
-            createjs.Sound.play('vistrelSound');
-            createjs.Sound.play('pulyaSound', {delay: 200});
+            createjs.Sound.play('lineWinSound');
         }
     }
 

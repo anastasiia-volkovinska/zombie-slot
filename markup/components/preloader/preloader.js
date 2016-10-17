@@ -117,23 +117,29 @@ export let preloader = (function () {
             name: 'preloaderLogo',
             x: w / 2,
             y: 165,
-            scaleX: 0.7,
-            scaleY: 0.7
+            scaleX: 0.1,
+            scaleY: 0.1,
+            alpha: 0
         });
         utils.getCenterPoint(preloaderLogo);
+
 
         const preloaderPlay = new c.Bitmap(loader.getResult('play'));
         preloaderPlay.set({
             name: 'preloaderPlay',
             x: w / 2,
             y: 370,
-            scaleX: 0.7,
-            scaleY: 0.7,
+            scaleX: 0.1,
+            scaleY: 0.1,
             // visible: false,
-            cursor: 'pointer'
+            cursor: 'pointer',
+            alpha: 0
         });
         utils.getCenterPoint(preloaderPlay);
 
+        let tl = new TimelineMax();
+        tl.to(preloaderLogo, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)})
+            .to(preloaderPlay, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)}, '-=0.4');
         // let lines = [];
         // const line = new c.Bitmap(loader.getResult('fonLine')).set({
         //     name: 'line',

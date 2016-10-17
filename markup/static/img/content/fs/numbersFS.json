@@ -1,0 +1,38 @@
+{
+
+"images": [
+    "static/img/content/fs/numbersFS.png"
+],
+
+"frames": [
+    [1, 1, 61, 77, 0, -22, -13],
+    [64, 1, 61, 78, 0, -22, -12],
+    [127, 1, 64, 78, 0, -21, -12],
+    [1, 81, 58, 75, 0, -24, -14],
+    [61, 81, 62, 77, 0, -21, -13],
+    [125, 81, 62, 76, 0, -21, -13],
+    [1, 160, 63, 76, 0, -21, -13],
+    [66, 160, 62, 77, 0, -21, -12],
+    [130, 160, 62, 76, 0, -21, -13],
+    [194, 160, 42, 76, 0, -21, -13]
+],
+
+"animations": {
+    "0": { "frames": [0] },
+    "9": { "frames": [1] },
+    "8": { "frames": [2] },
+    "7": { "frames": [3] },
+    "6": { "frames": [4] },
+    "5": { "frames": [5] },
+    "4": { "frames": [6] },
+    "3": { "frames": [7] },
+    "2": { "frames": [8] },
+    "1": { "frames": [9] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:5b84aa053f17d225ee3ebd7704c4ac00:b9aefa135a6d3c48b9565f0b5f98c7e2:f2eed18063d30bc67778ee67c2969664$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

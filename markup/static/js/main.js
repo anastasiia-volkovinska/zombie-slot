@@ -26,7 +26,7 @@ init.start({
     device: 'mobile',
     userID: 2,
     casinoID: 2,
-    mode: 'normal'
+    mode: 'fsBonus'
 });
 
 init.login();
@@ -35,7 +35,7 @@ init.login();
 canvas.start({
     canvas: '#game',
     mouseOver: 20,
-    leftToRight: 150,
+    leftToRight: 180,
     center: 75,
     timeToSlide: 0.5
 });

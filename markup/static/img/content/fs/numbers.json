@@ -1,0 +1,42 @@
+{
+
+"images": [
+    "static/img/content/fs/numbers.png"
+],
+
+"frames": [
+    [1, 1, 213, 230, 0, -40, -44],
+    [216, 1, 162, 231, 0, -42, -43],
+    [380, 1, 180, 230, 0, -33, -44],
+    [562, 1, 139, 230, 0, -53, -44],
+    [703, 1, 166, 230, 0, -41, -44],
+    [871, 1, 154, 230, 0, -46, -44],
+    [1027, 1, 158, 230, 0, -45, -44],
+    [1187, 1, 114, 230, 0, -66, -44],
+    [1303, 1, 169, 230, 0, -39, -44],
+    [1474, 1, 86, 230, 0, -40, -44],
+    [1562, 1, 117, 231, 0, -66, -44],
+    [1681, 1, 148, 165, 0, -51, -77]
+],
+
+"animations": {
+    "0": { "frames": [0] },
+    "9": { "frames": [1] },
+    "8": { "frames": [2] },
+    "7": { "frames": [3] },
+    "6": { "frames": [4] },
+    "5": { "frames": [5] },
+    "4": { "frames": [6] },
+    "3": { "frames": [7] },
+    "2": { "frames": [8] },
+    "1": { "frames": [9] },
+    "x": { "frames": [10] },
+    "+": { "frames": [11] }
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:b40a5bfc7024bce3a154a4e3fae25afa:7c2220ed418b75adb8dc8b3d1fd376c4:2b779735d5bcf5db4cd0984554ae61e6$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}

@@ -25,6 +25,8 @@ export function drawFreeSpinsBG() {
     const bgContainer = stage.getChildByName('bgContainer');
     const mainContainer = stage.getChildByName('mainContainer');
     const gameBG = mainContainer.getChildByName('gameBG');
+    const mainBGsecond = bgContainer.getChildByName('mainBGsecond');
+    mainBGsecond.alpha = 0;
     const mainBG = bgContainer.getChildByName('mainBG');
     mainBG.alpha = 0;
 
@@ -40,7 +42,7 @@ export function drawFreeSpinsBG() {
     const fsBG = new c.Bitmap(loader.getResult('fsBG')).set({
         name: 'fsBG'
     });
-    bgContainer.addChildAt(fsBG, bgContainer.getChildIndex(mainBG) + 1);
+    bgContainer.addChildAt(fsBG, bgContainer.getChildIndex(mainBGsecond) + 1);
 
     if (storage.read('device') === 'desktop') {
         const controlsContainer = mainContainer.getChildByName('controlsContainer');

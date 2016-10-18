@@ -34,14 +34,14 @@ export let bg = (function () {
             mainContainer.x = mainContainer.x + 130;
         }
         const mainBG = new c.Bitmap(loader.getResult('mainBG')).set({name: 'mainBG'});
-        // const zaglushka = new c.Bitmap(loader.getResult('zaglushka')).set({name: 'zaglushka', y: 600, scaleX: 0.7, scaleY: 0.7});
-        const mainBGSky = new c.Bitmap(loader.getResult('mainBGSky')).set({name: 'mainBGSky'});
-        const greyBGGradient = new c.Shape().set({
-            name: 'greyBGGradient',
-            alpha: 0
-        });
-        greyBGGradient.graphics.beginLinearGradientFill(['#000', '#FFF'], [0, 1], 0, 0, 0, utils.height).drawRect(0, 0, utils.width, utils.height);
-        TweenMax.to(greyBGGradient, 45, {alpha: 0.8, repeat: -1, yoyo: true, ease: Power4.easeInOut});
+        const mainBGsecond = mainBG.clone().set({name: 'mainBGsecond', x: -1280});
+
+        let tl = new TimelineMax({repeat: -1});
+        tl.to(mainBG, 50, {x: 1280, ease: Power0.easeNone})
+            .to(mainBG, 0, {x: -1280})
+            .to(mainBG, 50, {x: 0, ease: Power0.easeNone})
+            .to(mainBGsecond, 100, {x: 1280, ease: Power0.easeNone}, 0)
+            .to(mainBGsecond, 0, {x: -1280});
 
         const gameBG = new c.Bitmap(loader.getResult('gameBG')).set({
             name: 'gameBG',
@@ -54,17 +54,10 @@ export let bg = (function () {
             y: 5 // Magic Numbers
         });
 
-        bgContainer.addChild(mainBGSky, greyBGGradient, mainBG);
+        bgContainer.addChild(mainBG, mainBGsecond);
         mainContainer.addChild(gameBG, gameMachine);
         stage.addChildAt(bgContainer, mainContainer, 0);
 
-        // addCloud();
-        // addCloud();
-        // addCloud();
-        // addPole();
-
-        // TODO: Разобраться с кешированием бекграундов
-        // TODO: Перенасти отрисовку нижних полосок меню в модуль balance
 
         storage.changeState('bgDraw', 'main');
         events.trigger('bg:main');

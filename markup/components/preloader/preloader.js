@@ -123,7 +123,6 @@ export let preloader = (function () {
         });
         utils.getCenterPoint(preloaderLogo);
 
-
         const preloaderPlay = new c.Bitmap(loader.getResult('play'));
         preloaderPlay.set({
             name: 'preloaderPlay',
@@ -140,6 +139,13 @@ export let preloader = (function () {
         let tl = new TimelineMax();
         tl.to(preloaderLogo, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)})
             .to(preloaderPlay, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)}, '-=0.4');
+
+        let tl2 = new TimelineMax({repeat: -1});
+        tl2.to(preloaderPlay, 0.1, {rotation: -5, ease: Power0.easeNone, delay: 2})
+           .to(preloaderPlay, 0.1, {rotation: 5, ease: Power0.easeNone})
+           .to(preloaderPlay, 0.1, {rotation: -5, ease: Power0.easeNone})
+           .to(preloaderPlay, 0.1, {rotation: 5, ease: Power0.easeNone})
+           .to(preloaderPlay, 0.1, {rotation: 0, ease: Power0.easeNone});
         // let lines = [];
         // const line = new c.Bitmap(loader.getResult('fonLine')).set({
         //     name: 'line',

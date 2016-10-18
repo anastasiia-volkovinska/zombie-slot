@@ -8,20 +8,21 @@ export const mainManifest = [
     // bg module
     {id: 'mainBG', src: 'static/img/content/bg/mainBG.png'},
     {id: 'gameBG', src: 'static/img/content/bg/gameBG.png'},
-    {id: 'mainBGSky', src: 'static/img/content/bg/mainBGSky.png'},
-    {id: 'luchi', src: 'static/img/content/bg/luchi.png'},
-    {id: 'cloud', src: 'static/img/content/bg/cloud.png'},
+    // {id: 'mainBGSky', src: 'static/img/content/bg/mainBGSky.png'},
+    // {id: 'luchi', src: 'static/img/content/bg/luchi.png'},
+    // {id: 'cloud', src: 'static/img/content/bg/cloud.png'},
     {id: 'gameMachine', src: 'static/img/content/bg/gameMachine.png'},
     {id: 'balance', src: 'static/img/content/balance/balance.json', type: 'spritesheet'},
     {id: 'rules', src: 'static/img/content/bg/firstRules.png'},
     {id: 'home', src: 'static/img/content/new/home.png'},
-    {id: 'fonLine', src: 'static/img/content/bg/fonLine.png'},
+    // {id: 'fonLine', src: 'static/img/content/bg/fonLine.png'},
     // {id: 'zaglushka', src: 'static/img/content/bg/zaglushka.png'},
     // {id: 'pole', src: 'static/img/content/bg/pole.json', type: 'spritesheet'},
 
     // preloader module
     {id: 'preloaderBG', src: 'static/img/content/preloader/preloaderBG.png'},
     {id: 'logo', src: 'static/img/content/preloader/logo.png'},
+    {id: 'logoAG', src: 'static/img/content/preloader/logoAG.png'},
     // {id: 'baraban', src: 'static/img/content/preloader/baraban.json', type: 'spritesheet'},
 
     // buttons module

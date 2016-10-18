@@ -327,6 +327,13 @@ export let freeSpin = (function () {
         let tl0 = new TimelineMax();
         tl0.to(transitionFSText, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)})
             .to(transitionWinText, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)}, '-=0.4');
+
+        let tl1 = new TimelineMax({repeat: -1});
+        tl1.to(transitionButton, 0.1, {rotation: -5, ease: Power0.easeNone, delay: 2})
+           .to(transitionButton, 0.1, {rotation: 5, ease: Power0.easeNone})
+           .to(transitionButton, 0.1, {rotation: -5, ease: Power0.easeNone})
+           .to(transitionButton, 0.1, {rotation: 5, ease: Power0.easeNone})
+           .to(transitionButton, 0.1, {rotation: 0, ease: Power0.easeNone});
         // let lines = [];
         // const line = new c.Bitmap(loader.getResult('fonLine')).set({
         //     name: 'line',
@@ -612,6 +619,7 @@ export let freeSpin = (function () {
         tl.to(finishText, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)})
             .to(finishWinText, 1, {scaleX: 0.7, scaleY: 0.7, alpha: 1, ease: Elastic.easeOut.config(1, 0.3)}, '-=0.4');
 
+
         let finishButton = new createjs.Bitmap(loader.getResult('continue')).set({
             name: 'finishButton',
             y: 580,
@@ -621,6 +629,13 @@ export let freeSpin = (function () {
         });
         utils.getCenterPoint(finishButton);
         utils.setInCenterOf(finishButton, utils.width);
+
+        let tl2 = new TimelineMax({repeat: -1});
+        tl2.to(finishButton, 0.1, {rotation: -5, ease: Power0.easeNone, delay: 2})
+        .to(finishButton, 0.1, {rotation: 5, ease: Power0.easeNone})
+        .to(finishButton, 0.1, {rotation: -5, ease: Power0.easeNone})
+        .to(finishButton, 0.1, {rotation: 5, ease: Power0.easeNone})
+        .to(finishButton, 0.1, {rotation: 0, ease: Power0.easeNone});
 
         // let lines = [];
         // const line = new c.Bitmap(loader.getResult('fonLine')).set({
@@ -666,6 +681,8 @@ export let freeSpin = (function () {
                     stage.removeChild(fsBG);
                     const mainBG = bgContainer.getChildByName('mainBG');
                     mainBG.alpha = 1;
+                    const mainBGsecond = bgContainer.getChildByName('mainBGsecond');
+                    mainBGsecond.alpha = 1;
                 });
         });
         stage.addChild(finishContainer);
